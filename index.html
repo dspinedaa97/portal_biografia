@@ -1,19 +1,72 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biografía</title>
+
+    <!-- Leaflet CSS -->
+    <link 
+        rel="stylesheet" 
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
+
     <h1>Dylan Steve Pineda Avendaño</h1>
+
     <div>
-        Aqui va la foto
+        <h3>Foto</h3>
+        Aquí va la foto
     </div>
+
     <div>
+        <h3>Biografía</h3>
         Aquí va la biografía
     </div>
+
     <div>
-        Aquí va el mapa
+        <h3>Mapa</h3>
+        <div id="map"></div>
     </div>
+
+    <!-- Leaflet JS -->
+    <script 
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <script>
+        // Coordenadas de Bogotá
+        const bogota = [4.6097, -74.0817];
+
+        // Coordenadas aproximadas de la sede del SINCHI en Bogotá
+        const sinchi = [4.5981, -74.0758];
+
+        // Crear el mapa
+        const map = L.map('map').setView(bogota, 13);
+
+        // Capa base de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Marcador del SINCHI
+        L.marker(sinchi)
+            .addTo(map)
+            .bindPopup('<b>Sede SINCHI</b><br>Instituto Amazónico de Investigaciones Científicas')
+            .openPopup();
+    </script>
+
 </body>
 </html>
