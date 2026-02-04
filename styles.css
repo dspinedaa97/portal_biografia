@@ -1,25 +1,87 @@
-/* Foto a la izquierda */
+/* Estilo general */
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background-color: #f2f4f7;
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+}
+
+/* Título principal */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* Caja de perfil: foto + biografía */
+.perfil {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    background-color: #ffffff;
+    width: 80%;
+    max-width: 900px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Foto */
 .foto {
-    float: left;
-    margin-right: 20px;
+    text-align: center;
+    flex-shrink: 0; /* no se achique */
 }
 
 .foto img {
     width: 200px;
     height: 260px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
-/* Biografía a la derecha */
+/* Biografía */
 .biografia {
-    overflow: hidden; /* evita que se monte con el float */
     text-align: justify;
-    max-width: 700px;
+    line-height: 1.6;
+    flex: 1; /* ocupa el espacio restante */
 }
 
-/* Mapa debajo */
+/* Caja del mapa */
 .mapa {
-    clear: both; /* baja el mapa */
+    background-color: #ffffff;
+    width: 80%;
+    max-width: 900px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     margin-top: 30px;
-#map { height: 500px; width: 800px;}
+}
+
+/* Mapa */
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Títulos internos */
+h3 {
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+/* Responsive: móvil */
+@media (max-width: 768px) {
+    .perfil {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .biografia {
+        text-align: justify;
+    }
+}
